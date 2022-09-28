@@ -1,4 +1,4 @@
--- Moritz Füssel, 15.09.22 - 28.09.22
+-- Copyright 2022 Moritz Füssel
 -- Select-Satements
 /*	DB und Tabellen erstellen
 	DB firma */
