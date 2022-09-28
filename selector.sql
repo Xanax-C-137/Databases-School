@@ -238,3 +238,40 @@ from	person_funktion natural join funktion
 group by fun_name
 having count(per_id) > 1;
 
+-- ORDER BY
+-- Alle Personen sortiert nach Nachname
+select	*
+from	person
+order by per_nname;
+
+-- Alle Personen sortiert nach Nachname und (innerhalb) Vorname.
+select	*
+from	person
+order by per_nname, per_vname;
+
+-- Default: aufsteigende Sortierung
+-- Auf- oder absteigend sortieren: explizit angeben
+select	*
+from	person
+order by per_nname asc, per_vname asc;
+-- ASC: aufsteigend
+-- DESC: absteigend
+select	*
+from	person
+order by per_nname desc, per_vname asc;
+
+-- LIMIT
+-- einen oder mehrere Ergebnisdatensätze ausgeben
+-- z.B. limit 0, 4: ab (einschließlich) 1.Datensatz(DS) vier DS ausgeben
+select	*
+from	person
+limit	0,4;
+
+-- Aufgabe: Alle Personen inkl. Funktion(sbezeichnung), sortiert
+--			nach Funktion und dann Nachname. Geben Sie den 3. Datensatz
+--			aus. Verwenden Sie Attributalias.
+select	concat(p.per_vname, " ", p.per_nname) as "Person", f.fun_name as "Funktion"
+from	person p, person_funktion pf, funktion f
+where	p.per_id = pf.per_id
+order by f.fun_name desc, p.per_nname asc
+limit	2,1;
