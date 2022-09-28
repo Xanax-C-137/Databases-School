@@ -275,3 +275,9 @@ from	person p, person_funktion pf, funktion f
 where	p.per_id = pf.per_id
 order by f.fun_name desc, p.per_nname asc
 limit	2,1;
+
+-- DISTINCT
+-- z.B. entfernt mehrfache Werte
+-- Alle Funktionen die mit einer Person verknüpft sind
+select	distinct fun_name
+from	funktion natural join person_funktion;
